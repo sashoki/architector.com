@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+
+{% block project %}
+					<section class="myin-content">
+						<div class="blog-item">
+							<div class="col-md-12">
+								<div class="center">
+									<h3><a href="{% url 'portfolio' %}">{{ project.project_title }}</a></h3>
+									{% if project.project_img %}
+									<img src="{{ MEDIA_URL }}{{ project.project_img.url }}" width="700" height="500"  />
+									{% endif %}
+									<p>{% autoescape off %}{{ project.project_text }}{% endautoescape off %}</p>
+								</div>
+							</div>
+						</div>
+					</section>
+{% endblock %}

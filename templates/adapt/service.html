@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+
+{% block service %}
+
+					<section class="myin-content">
+						<div class="blog-item">
+							<div class="col-md-12">
+								<div class="center">
+									<h3><a href="{% url 'services' %}">{{ service.service_title }}</a></h3>
+									{% if service.service_img %}
+									<img src="{{ MEDIA_URL }}{{ service.service_img.url }}" width="500" height="300"  />
+									{% endif %}
+									<p>{% autoescape off %}{{ service.service_text }}{% endautoescape off %}</p>
+								</div>
+							</div>
+						</div>
+					</section>
+{% endblock %}

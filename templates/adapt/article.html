@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+
+{% block article %}
+					<section class="myin-content">
+						<div class="blog-item">
+							<div class="col-md-12">
+								<div class="center">
+									<h3><a href="{% url 'central' %}">{{ article.article_title }}</a></h3>
+									{% if article.article_img %}
+									<img src="{{ MEDIA_URL }}{{ article.article_img.url }}" width="500" height="300"  />
+									{% endif %}
+									<p>{% autoescape off %}{{ article.article_text }}{% endautoescape off %}</p>
+								</div>
+							</div>
+						</div>
+					</section>
+{% endblock %}

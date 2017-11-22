@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+
+{% block services %}
+<div class="myin-content">
+	<div class="col-md-12">
+		<div class="row">
+			<a href="{% url 'central' %}" class="logos">ПОСЛУГИ</a>
+		</div>
+	</div>
+</div>
+{% for service in services %}
+
+					<section class="myin-content">
+						<div class="blog-item">
+							<div class="col-md-12">
+								<hr />
+							</div>
+							<div class="col-md-4">
+								<div class="img-data">
+									{% if service.service_img %}
+									<img src="{{ MEDIA_URL }}{{ service.service_img.url }}" width="300" height="300" class="img-responsive" />
+									{% endif %}
+									<!-- <h6>Дата публікації: {{ service.service_data }}</h6> -->
+								</div>
+							</div>
+
+							<div class="col-md-8">
+								<div class="title-text">
+									<h3><a href="{% url 'service' service.id %}">{{ service.service_title }}</a></h3>
+									<p>{% autoescape off %}{{ service.get_short_text }}{% endautoescape off %}</p>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+{% endfor %}
+{% endblock %}
